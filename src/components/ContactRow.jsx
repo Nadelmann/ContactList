@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 
 export default function ContactRow({ setSelectedContactId, contact }) {
     return (
@@ -8,3 +9,13 @@ export default function ContactRow({ setSelectedContactId, contact }) {
       </tr>
     );
 }
+
+ContactRow.propTypes = {
+  setSelectedContactId: PropTypes.func.isRequired,
+  contact: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+  }).isRequired,
+};
