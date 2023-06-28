@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function SelectedContactView({ selectedContactId, setSelectedContactId }) {
-  const [contact, setContact] = useState(setSelectedContactId);
+export default function SelectedContactView({ selectedContactId, setSelectedContactId, onBack }) {
+  const [contact, setContact] = useState(null);
 
   useEffect(() => {
     async function fetchContact() {
@@ -10,17 +10,25 @@ export default function SelectedContactView({ selectedContactId, setSelectedCont
         const resultView = await response.json();
         console.log(resultView);
         setContact(resultView);
-      } catch (errorView) {
-        console.error(errorView);
+      } catch (error) {
+        console.error(error);
       }
     }
 
     fetchContact();
   }, [selectedContactId]);
 
+  if (!contact) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
-      {contact && <h1>{contact.name}</h1>}
+      <h1>{contact.name}</h1>
+      <h2>Email: {contact.email}</h2>
+      <h2>Phone: {contact.phone}</h2>
+      <h2>Website: {contact.website}</h2>
+      <button onClick={onBack}>Back</button>
     </div>
   );
 }

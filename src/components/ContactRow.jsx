@@ -9,7 +9,7 @@ export default function ContactRow({ setSelectedContactId, contact }) {
       </tr>
     );
 }
-
+ 
 // ContactRow.propTypes = {
 //   setSelectedContactId: PropTypes.func.isRequired,
 //   contact: PropTypes.shape({
