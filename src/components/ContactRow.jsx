@@ -10,12 +10,3 @@ export default function ContactRow({ setSelectedContactId, contact }) {
     );
 }
  
-// ContactRow.propTypes = {
-//   setSelectedContactId: PropTypes.func.isRequired,
-//   contact: PropTypes.shape({
-//     id: PropTypes.number,
-//     name: PropTypes.string,
-//     email: PropTypes.string,
-//     phone: PropTypes.string,
-//   }).isRequired,
-// };
