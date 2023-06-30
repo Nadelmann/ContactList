@@ -9,9 +9,9 @@ export default function SelectedContact({ selectedContactId, setSelectedContactI
         const response = await fetch(
           `https://fsa-jsonplaceholder-69b5c48f1259.herokuapp.com/users/${selectedContactId}`
         );
-        const resultView = await response.json();
-        console.log(resultView);
-        setContact(resultView);
+        const result = await response.json();
+        console.log(result);
+        setContact(result);
       } catch (error) {
         console.error(error);
       }
@@ -25,7 +25,7 @@ export default function SelectedContact({ selectedContactId, setSelectedContactI
   }
 
   return (
-    <div onClick={() => setSelectedContactId(contact)}>
+    <div onClick={() => SelectedContact(contact)}>
       <h1>{contact.name}</h1>
       <h2>Email: {contact.email}</h2>
       <h2>Phone: {contact.phone}</h2>
